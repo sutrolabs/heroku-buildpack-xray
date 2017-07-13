@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# bin/detect <build-dir>
+
+echo "Heroku AWS X-Ray Buildpack" && exit 0
