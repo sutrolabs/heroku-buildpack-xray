@@ -16,4 +16,4 @@ log "Downloading X-Ray daemon..."
 wget $XRAY_DOWNLOAD_LINK -P $CACHE_DIR
 
 log "Installing X-Ray daemon..."
-dpkg -i $CACHE_DIR/*.deb
+sudo dpkg -i $CACHE_DIR/*.deb
