@@ -8,18 +8,9 @@ log() {
 BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
-APT_BUILD_DIR="$BUILD_DIR/.apt"
-APT_CACHE_DIR="$CACHE_DIR/apt/cache"
-APT_STATE_DIR="$CACHE_DIR/apt/state"
 XRAY_DOWNLOAD_LINK="https://s3.dualstack.us-east-2.amazonaws.com/aws-xray-assets.us-east-2/xray-daemon/aws-xray-daemon-2.x.deb"
 
 mkdir -p "$CACHE_DIR"
-
-log "Updating apt cache..."
-apt-get update
-
-log "Installing dependencies..."
-apt-get install -y wget
 
 log "Downloading X-Ray daemon..."
 wget $XRAY_DOWNLOAD_LINK -P $CACHE_DIR
