@@ -8,12 +8,19 @@ log() {
 BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
-XRAY_DOWNLOAD_LINK="https://s3.dualstack.us-east-2.amazonaws.com/aws-xray-assets.us-east-2/xray-daemon/aws-xray-daemon-2.x.deb"
+DPKG_DIR=$BUILD_DIR/.dpkg
+DPKG_CACHE_DIR=$CACHE_DIR/dpkg/cache
+XRAY_DOWNLOAD_LINK="https://s3.dualstack.us-east-2.amazonaws.com/aws-xray-assets.us-east-2/xray-daemon/aws-xray-daemon-linux-2.x.zip"
 
-mkdir -p "$CACHE_DIR"
+mkdir -p $CACHE_DIR
 
 log "Downloading X-Ray daemon..."
 wget $XRAY_DOWNLOAD_LINK -P $CACHE_DIR
 
-log "Installing X-Ray daemon..."
-sudo dpkg -i $CACHE_DIR/*.deb
+log "Extracting X-Ray daemon executable..."
+cd $CACHE_DIR
+jar xf *.zip
+
+log "Running X-Ray daemon..."
+chmod +x xray
+./xray --local-mode &
