@@ -15,7 +15,7 @@ XRAY_DOWNLOAD_LINK="https://s3.dualstack.us-east-2.amazonaws.com/aws-xray-assets
 mkdir -p $CACHE_DIR
 
 log "Downloading X-Ray daemon..."
-wget $XRAY_DOWNLOAD_LINK -P $CACHE_DIR
+wget -nc $XRAY_DOWNLOAD_LINK -P $CACHE_DIR
 
 log "Extracting X-Ray daemon executable..."
 cd $CACHE_DIR
