@@ -20,7 +20,3 @@ wget -nc $XRAY_DOWNLOAD_LINK -P $CACHE_DIR
 log "Extracting X-Ray daemon executable..."
 cd $CACHE_DIR
 jar xf *.zip
-
-log "Running X-Ray daemon..."
-chmod +x xray
-./xray --local-mode &
