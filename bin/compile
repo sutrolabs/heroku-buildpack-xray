@@ -17,11 +17,11 @@ mkdir -p $BUILD_DIR/bin
 mkdir -p $BUILD_DIR/.profile.d
 
 log "Downloading X-Ray daemon..."
-wget -nc $XRAY_DOWNLOAD_LINK -P $CACHE_DIR
+wget -nc $XRAY_DOWNLOAD_LINK -O ${CACHE_DIR}/xray.zip
 
 log "Extracting X-Ray daemon executable..."
 cd $CACHE_DIR
-jar xf *.zip
+unzip xray.zip
 chmod +x xray
 cp $CACHE_DIR/xray $BUILD_DIR/bin/xray
 
