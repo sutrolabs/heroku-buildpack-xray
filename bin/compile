@@ -21,7 +21,7 @@ wget -nc $XRAY_DOWNLOAD_LINK -O ${CACHE_DIR}/xray.zip
 
 log "Extracting X-Ray daemon executable..."
 cd $CACHE_DIR
-unzip xray.zip
+unzip -o xray.zip
 chmod +x xray
 cp $CACHE_DIR/xray $BUILD_DIR/bin/xray
 
