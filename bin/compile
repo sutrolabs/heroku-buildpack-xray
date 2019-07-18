@@ -29,7 +29,7 @@ log "Creating .profile.d script..."
 cat > $BUILD_DIR/.profile.d/001-xray-daemon.sh << EOF
 #!/bin/sh
 
-$HOME/bin/xray --log-level error --local-mode &
+AWS_ACCESS_KEY_ID=$AWS_XRAY_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_XRAY_SECRET_ACCESS_KEY AWS_REGION=$AWS_XRAY_REGION $HOME/bin/xray --log-level error --local-mode &
 EOF
 
 chmod +x $BUILD_DIR/.profile.d/001-xray-daemon.sh
